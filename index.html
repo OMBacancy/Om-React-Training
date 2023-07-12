@@ -3,8 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Initial page</title>
+    <!--Linking the script-->
+
 </head>
 <body>
+    <!--Select tag with element list-->
+    <label for="elementSelect">Select an element:</label>
+    <select id="elementSelect">
+        <option value="h1">Heading (h1)</option>
+        <option value="p">Paragraph (p)</option>
+        <option value="div">Division (div)</option>
+    </select>
+    <br><br>
+
+    <!--Pick color-->
+    <label for="elementColor">Pick Color:</label>
+    <input type="color" id="elementColor">
+    <br><br>
+
+    <!--Text box-->
+    <label for="elementText">Add text:</label>
+    <textarea id="elementText" cols="30" rows="5"></textarea>
+    <br><br>
+
+    <!--Submit button-->
+    <button id="addButton" onclick="add()">Prem! Button Daba</button>
+
+    <!--Empty div to add the selected element-->
+    <div id="addItHere"></div>
 
 </body>
 </html>
