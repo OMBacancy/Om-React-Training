@@ -1,19 +1,12 @@
-// const/let vs var //
+// used fetch() to get data from an API/URL
+const fetchUser = fetch('https://jsonplaceholder.typicode.com/users')
 
-if (false) {
-    let x = 1
-} else {
-    let x = 2 // cannot be accessed outside even though it is executed
-}
-
-console.log(x) // throws an undefined error because let/const declare variable in lexical/inner scoping
-
-// -------------------------------------------------------- //
-
-if (false) {
-    var x = 1
-} else {
-    var x = 2
-}
-
-console.log(x) // prints 2 because var declares variable in global scoping
+// Promise object fetchUser has async function which will await the response to convert into JSON format
+// then() and catch() functions are optional along with Promise object
+// then() executes if Promise is successful/fulfilled
+// catch() executes if Promise is failed/rejected
+fetchUser.then(async (response)=>{
+    console.log(await response.json())
+}).catch((error)=>{
+    console.log(error)
+})
