@@ -1,23 +1,21 @@
-import {useState} from 'react';
+import {useRef, useState} from "react";
 
 export default function Input() {
-    const [message, setMessage] = useState('');
+    const ref = useRef(null)
+    const [message, setMessage] = useState("");
 
-    const handleChange = (event) => {
-        // 👇 Get input value from "event"
-        setMessage(event.target.value);
-    };
+    function clickHandler() {
+        setMessage(ref.current.value);
+        console.log(ref);
+    }
 
-    return (
-        <div>
-            <h3><u>Enter your message here: </u></h3>
-            <input
-                type="text"
-                id="message"
-                onChange={handleChange}
-            />
-            <h3><u>Message: </u></h3>
-            <h1>{message}</h1>
-        </div>
-    );
+    function inputHandler() {
+        if (ref.current.value === "") setMessage("")
+    }
+
+    return <>
+        <input type="text" ref={ref}  onChange={inputHandler}/>
+        <button onClick={clickHandler}>Submit</button>
+        <h2>{message}</h2>
+    </>
 }

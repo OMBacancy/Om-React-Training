@@ -1,9 +1,9 @@
-export default function Button() {
+export default function Button(props) {
     function eventHandler() {
-        return <h2>Input Text</h2>
+        return <h2>{props.message}</h2>
     }
     return <>
-        <button type={"submit"} onSubmit={eventHandler}>View</button>
+        <button type={"submit"} onClick={eventHandler}>Submit</button>
     </>
 }
 
