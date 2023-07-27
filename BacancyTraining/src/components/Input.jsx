@@ -5,10 +5,10 @@ export default function Input() {
     const [buttonState, setButtonState] = useState(true);
     const [list, setList] = useState([])
 
-    // list = []
 
     function clickHandler() {
-        setList([ref.current.value, ...list])
+        const data = {"id": list.length + 1, "value": ref.current.value}
+        setList([...list, data])
         ref.current.value = ""
         setButtonState(true)
     }
@@ -19,14 +19,29 @@ export default function Input() {
 
     }
 
+    function removeElement(id) {
+        console.log(id)
+        let tmp = list.filter(val => val.id !== id);
+        setList(tmp);
+    }
+
     return <>
         <input type="text" ref={ref} onChange={inputFieldHandler}/>
+        <br/><br/>
         <button onClick={clickHandler} disabled={buttonState}>Submit</button>
 
         <ul>
-            {
-                list.map((data, index) => <li key={index}>{data}</li>)
-            }
+            <div>
+                {
+                    list.map((data, index) => <div key={data.id}
+                                                   style={{display: "flex", justifyContent: "space-between"}}>
+                        <li>{data.value}</li>
+                        <button onClick={() => removeElement(data.id)}>&times;</button>
+                    </div>)
+                }
+
+            </div>
+
         </ul>
     </>
 }
