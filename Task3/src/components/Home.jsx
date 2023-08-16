@@ -1,7 +1,9 @@
+import home from '../assets/home.jpg'
+
 export default function Home() {
     return <>
         <p>==========================================</p>
-        <h1>Home</h1>
+        <img src={home} alt=""/>
         <p>==========================================</p>
     </>
 }

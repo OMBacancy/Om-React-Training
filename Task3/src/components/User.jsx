@@ -5,19 +5,18 @@ export default function User({data}) {
     let temp = {};
 
     for(const u of data) {
-        console.log(u)
-        if (+u.id === +param.id) {
 
+        if (+u.id === +param.id) {
             temp = u;
         }
     }
 
-    console.log(temp)
     return <>
-        <h1>User {param.id}</h1>
-        <p>{temp.id.toString()}</p>
-        <p>{temp.userName.toString()}</p>
-        <p>{temp.userEmail.toString()}</p>
-        <p>{temp.userPassword.toString()}</p>
+        <h1>User #{param.id}</h1>
+        <p>User ID: {temp.id.toString()}</p>
+        <p>User Name: {temp.userName.toString()}</p>
+        <p>User Email: {temp.userEmail.toString()}</p>
+        <p>User Password: {temp.userPassword.toString()}</p>
+        <p>==========================================</p>
     </>
 }
